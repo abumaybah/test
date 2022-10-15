@@ -1,69 +1,43 @@
+/* Задание на урок:
+
+1) Создать переменную numberOfFilms и в неё поместить ответ от пользователя на вопрос:
+'Сколько фильмов вы уже посмотрели?'
+
+2) Создать объект personalMovieDB и в него поместить такие свойства:
+    - count - сюда передается ответ на первый вопрос
+    - movies - в это свойство поместить пустой объект
+    - actors - тоже поместить пустой объект
+    - genres - сюда поместить пустой массив
+    - privat - в это свойство поместить boolean(логическое) значение false
+
+3) Задайте пользователю по два раза вопросы:
+    - 'Один из последних просмотренных фильмов?'
+    - 'На сколько оцените его?'
+Ответы стоит поместить в отдельные переменные
+Записать ответы в объект movies в формате: 
+    movies: {
+        'logan': '8.1'
+    }
+
+Проверить, чтобы все работало без ошибок в консоли */
+
 'use strict';
-// const result = confirm('are you here?');
-// console.log(result);
+const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
 
-// if (result) {
-//     const answer = +prompt('Are you 18 years old?', '18');
-//     console.log(typeof answer);
-// } else {
-//     console.log('fuck you');
-// }
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+};
 
-// const answers = [];
-// answers[0] = prompt('What is your name?', '');
-// answers[1] = prompt('What is your surname?', '');
-// answers[2] = +prompt('How old are you?', '18');
+const movieName = prompt('Один из последних просмотренных фильмов?', ''),
+    movieRating = +prompt('На сколько оцените его?', ''),
+    movieName2 = prompt('Один из последних просмотренных фильмов?', ''),
+    movieRating2 = +prompt('На сколько оцените его?', '');
 
-// document.write(answers);
+personalMovieDB.movies[movieName] = movieRating;
+personalMovieDB.movies[movieName2] = movieRating2;
 
-// const maximumTwo = (arr) => {
-//     let max1 = arr[0];
-//     let max2 = arr[1];
-//     let max1I = 0;
-//     let max2I = 1;
-//     for (let i = 2; i < arr.length; i++) {
-//         if (arr[i] > max1) {
-//             if (max1 > max2) {
-//                 max2 = arr[i];
-//                 max2I = i;
-//             } else {
-//                 max1 = arr[i];
-//                 max1I = i;
-//             }
-//         } else if (arr[i] > max2) {
-//             max2 = arr[i];
-//             max2I = i;
-//         }
-//     }
-
-//     if (max1 > max2) return [max2, max1, max2I, max1I];
-//     return [max1, max2, max1I, max2I];
-// };
-
-// const fn = function (weights) {
-//     if (weights.length <= 1) {
-//         return weights[0];
-//     }
-
-//     do {
-//         const [x, y, xI, yI] = maximumTwo(weights);
-//         console.log(x, y, xI, yI);
-//         if (x === 0) {
-//             return y;
-//         }
-
-//         weights[xI] = 0;
-//         weights[yI] = y - x;
-//     } while (true);
-// };
-
-// const result = fn([2, 7, 4, 1, 8, 1]);
-// console.log(result);
-
-let incr = 10,
-    decr = 10;
-
-// ++incr;
-// --decr;
-console.log(++incr);
-console.log(--decr);
+console.log(personalMovieDB);
